@@ -21,8 +21,8 @@ const Navbar = () => {
     {
       id: 3,
       title: <TbFileCv className="text-3xl cursor-pointer" />,
-      dest: cv, // Use the imported CV file as the destination
-      download: "BlagovestTodorov_CV.pdf", // Specify the download filename
+      dest: cv,
+      download: "BlagovestTodorov_CV.pdf",
     },
   ];
 
@@ -35,7 +35,7 @@ const Navbar = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: duration,
+        duration: duration + 0.5,
       },
     },
   });

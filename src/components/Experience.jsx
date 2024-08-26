@@ -15,7 +15,7 @@ const Experience = () => {
       year: "2023 - 2024 ",
       role: "Web Developer",
       company: "Alen-Mak",
-      description: `Designed and developed web applications using React. Implemented responsive designs and optimized frontend performance. Updating and maintaining the content according to the employer's requirements`,
+      description: `Designed and developed web application using React. Implemented responsive designs and optimized frontend performance. Updating and maintaining the content according to the employer's requirements`,
       technologies: ["HTML", "CSS", "React", "JavaScript"],
     },
   ];
