@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImg from "../assets/about_img.jpg";
+import aboutImg from "../assets/about_img.png";
 import { motion } from "framer-motion";
 import curve from "../assets/curve.png";
 const About = () => {
