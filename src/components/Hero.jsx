@@ -34,12 +34,8 @@ const Hero = () => {
             Front-End Developer
           </span>
           <p className=" leading-6 tracking-tighter font-light  relative z-[1]">
-            Student, 4th year at VFU. "Chernorizets Hrabar" . I am a Front-End
-            Developer with a passion for learning and a strong focus on
-            delivering precise and high-quality results, a team player with
-            communication skills. I am a responsible and dedicated person,
-            committed to achieving my goals and contributing to the success of
-            my team.
+            I am a Front-End Developer with a passion for learning and a strong
+            focus on delivering precise and high-quality results.
           </p>
         </motion.div>
         <div className="absolute z-[0] w-[60%] h-[30%] top-0 left-0 pink__gradient overflow-hidden" />

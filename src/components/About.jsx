@@ -64,16 +64,6 @@ const About = () => {
             completion of various Coursera and SoftUni courses, including Meta's
             Front-End Developer specialization.
           </p>
-          <p className="tracking-tighter font-light  relative z-[1] leading-6">
-            Beyond academics, I'm an active and sociable person who enjoys
-            spending time with friends, hitting the gym, and exploring the
-            outdoors on my bicycle or by car. These hobbies keep me energized
-            and balanced, providing a healthy outlet for my passion for
-            technology and problem-solving. I am ready to contribute my skills,
-            enthusiasm, and dedication to help your team achieve its goals.
-            Let's create something amazing together!
-          </p>
-
           <div className="absolute z-[0] w-[60%] h-[30%] top-0 right-0 pink__gradient overflow-hidden" />
           <div className="absolute z-[0] w-[70%] h-[60%] top-1 right-0   blue__gradient  overflow-hidden" />
           <div className="absolute z-[0] w-[40%] h-[40%] top-2 right-0 yellow__gradient  overflow-hidden" />
