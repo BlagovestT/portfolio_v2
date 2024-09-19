@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaSquareUpwork } from "react-icons/fa6";
 import curve from "../assets/curve.png";
 import { motion } from "framer-motion";
 
@@ -19,6 +17,16 @@ const Contact = () => {
       dest: "https://github.com/BlagovestT",
     },
   ];
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <footer className="w-full flex justify-center flex-col items-center p-5">
@@ -49,8 +57,9 @@ const Contact = () => {
       </motion.div>
 
       <form
-        action="https://formsubmit.co/your-unique-endpoint" // Replace with your FormSubmit URL
+        action="https://formsubmit.co/6c04b740566a9a6a2d5da8ff3a835a89"
         method="POST"
+        onSubmit={handleSubmit}
         className="w-full max-w-md bg-white__gradient p-8 rounded-lg shadow-lg mb-6 relative"
         style={{
           background: "rgba(255, 255, 255, 0.1)",
@@ -106,8 +115,9 @@ const Contact = () => {
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-[#da275c] to-[#fee140] text-white py-2 rounded-md font-bold hover:opacity-90 transition-opacity"
+          disabled={loading}
         >
-          Send Message
+          {loading ? "Sending..." : "Send Message"}
         </button>
       </form>
 
