@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import curve from "../assets/curve.png";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const navItems = [
@@ -18,14 +19,40 @@ const Contact = () => {
     },
   ];
 
-  const [loading, setLoading] = useState(false);
+  const onSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = (e) => {
-    setLoading(true);
+    const formData = new FormData(event.target);
+    formData.append("access_key", import.meta.env.VITE_WEB3_ACCESS_KEY);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        console.log("Success:", result);
+        event.target.reset();
+        Swal.fire({
+          title: "Success!",
+          text: "Message send successfully!",
+          icon: "success",
+        });
+      } else {
+        console.error("Form submission error:", result);
+      }
+    } catch (error) {
+      console.error("An error occurred while submitting the form:", error);
+    }
   };
 
   return (
@@ -34,16 +61,11 @@ const Contact = () => {
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
         transition={{ duration: 1 }}
-        className="flex justify-center flex-col w-full relative z-[4]  mb-9"
+        className="flex justify-center flex-col w-full relative z-[4] mb-9"
       >
         <div>
-          {" "}
-          <h1 className="text-white text-5xl text-center">
-            {" "}
-            Get in touch{" "}
-          </h1>{" "}
+          <h1 className="text-white text-5xl text-center">Get in touch</h1>
           <div className="text-center flex justify-center">
-            {" "}
             <motion.img
               whileInView={{ width: 100, opacity: 1 }}
               initial={{ width: 90, opacity: 0 }}
@@ -52,14 +74,12 @@ const Contact = () => {
               alt=""
               className="w-[100px] h-[10px] mt-1"
             />
-          </div>{" "}
+          </div>
         </div>
       </motion.div>
 
       <form
-        action="https://formsubmit.co/6c04b740566a9a6a2d5da8ff3a835a89"
-        method="POST"
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         className="w-full max-w-md bg-white__gradient p-8 rounded-lg shadow-lg mb-6 relative"
         style={{
           background: "rgba(255, 255, 255, 0.1)",
@@ -115,17 +135,15 @@ const Contact = () => {
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-[#da275c] to-[#fee140] text-white py-2 rounded-md font-bold hover:opacity-90 transition-opacity"
-          disabled={loading}
         >
-          {loading ? "Sending..." : "Send Message"}
+          Send Message
         </button>
       </form>
 
       <ul className="flex gap-4 flex-wrap mt-2 text-white">
-        {navItems.map((item, i) => (
+        {navItems.map((item) => (
           <motion.li key={item.id}>
-            <a href={item.dest} target="_blank">
-              {" "}
+            <a href={item.dest} target="_blank" rel="noopener noreferrer">
               {item.title}
             </a>
           </motion.li>
