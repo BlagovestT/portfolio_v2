@@ -5,7 +5,7 @@ import curve from "../assets/curve.png";
 const Experience = () => {
   const EXPERIENCES = [
     {
-      year: "2024 - Present",
+      year: "2024 - 2024",
       role: "Data Analyst",
       company: "Flat Rock Technology",
       description: `A Data Analyst with expertise in Excel, SQL, HTML5 and VBA, a versatile professional skilled in collecting, analyzing, and interpreting data to drive informed decision-making.`,
